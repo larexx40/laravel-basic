@@ -4,8 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
+        <!-- Boostrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <link rel="stylesheet" href="">
+        <title>{{config('app.name')}}</title>
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -19,7 +22,7 @@
                 font-family: 'Nunito', sans-serif;
                 background-color: rgb(255, 255, 255)
             }
-            ul{
+            .menu{
                 padding: 0px;
                 margin: 0px;
                 display: flex;
@@ -30,11 +33,11 @@
                 text-decoration: none;
                 color: inherit;
             }
-            li:hover{
+            .menu li:hover{
                 background: red;
                 color: #fff;
             }
-            li{
+            .menu li{
                 display: inline;
                 padding: 20px 30px;
                 color: #4f4f4f;
@@ -47,15 +50,16 @@
     <body class="antialiased">
         <header>
             <nav>
-                <ul>
-                    <li> <a href="/home"> Home</a> </li>
+                <ul class="menu">
+                    <li> <a href="/"> Home</a> </li>
                     <li> <a href="/about"> about</a> </li>
-                    <li> <a href="/"> welcome</a></li>
+                    <li> <a href="/welcome"> welcome</a></li>
+                    <li> <a href="/contact"> contact</a></li>
+                    <li> <a href="/gallery"> gallery</a></li>
                 </ul>
             </nav>
         </header>
-
-        <h1> This is my first homepage</h1>
+        @yield('bodyContent')
     </body>
 </html>
 
