@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +22,7 @@ class FormController extends Controller
         */
 
         $messages = [
-            'name.re' => 'Please enter your name',
+            'name.required' => 'Please enter your name',
             'email.required' => 'please enter a valid email address',
             'passwprd.required' => 'please enter tout password',
             'password.min' => 'please your password should be longer than 4 letters',
@@ -36,7 +37,20 @@ class FormController extends Controller
 
         $validator = Validator::make($request->all(), $rules, $messages);
         if($validator->fails()){
-            return redirect()->back()->with('errors', $validator-> errors());
+            return redirect()->back()->with('error', 'There is an error with one of your input');
         }
+
+        $user = new User();
+        $user-> name = $request-> name;
+        $user-> email =$request-> email;
+        $user -> password = bcrypt($request-> password);
+
+        $user->save();
+        return redirect()->back()->with('success', 'New User created');
+
+       
+
+        //return $request->all();
     }
+    
 }

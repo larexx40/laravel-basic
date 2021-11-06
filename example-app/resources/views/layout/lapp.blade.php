@@ -59,6 +59,21 @@
                 </ul>
             </nav>
         </header>
+        <div class="col-md-5 mt-5 mx-auto">
+            <div class="mt-2">
+                @if ($message= Session::get('success'))
+                    <div class="alert alert-success">
+                        {{$message}}
+                    </div>
+                @endif
+
+                @if ($message = Session::get('error'))
+                    <div class=" alert alert-danger">
+                        {{$message}}
+                    </div>
+                @endif
+            </div>
+        </div>
         @yield('bodyContent')
     </body>
 </html>
