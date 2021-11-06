@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\RegController;
 use Illuminate\Http\Request;
 
 /*
@@ -61,3 +62,5 @@ Route::get('/lapp', [PagesController::class , 'lapp']);
 */
 Route::get('/contact', [FormController::class, 'getform'])->name('get.form');
 Route::post('postform', [FormController::class, 'postform'])->name('post.form');
+Route::get('/reg', [RegController::class, 'getreg']);
+Route::post('postreg', [RegController::class, 'postreg']);
