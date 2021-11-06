@@ -10,7 +10,22 @@ class RegController extends Controller
         return view ('layout.reg');
     }
 
-    public function postreg(){
+    public function postreg(Request $request){
+        /* to display input details
+        return $request -> all();
+        */
         
+        //for validation
+       $this->validate($request, [
+            'fullname'=> 'required|string',
+            'email'=> 'email|required',
+            'username' => 'required',
+            'phone_number' => 'required',
+            'address'=>'required',
+            'paddress'=>'required',
+            'nidnumber'=> 'required',
+            'password'=> 'required|min:|max:20'
+        ]);
+        return $request->all();
     }
 }

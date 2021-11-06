@@ -4,6 +4,15 @@
     <p>Enter your correct student information.</p>
 
     <div class="cotainer">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                     <div class="card">
@@ -21,7 +30,8 @@
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="email">
+                                        
+                                        <input type="email" id="email_address" class="form-control" name="email">
                                     </div>
                                 </div>
 
@@ -35,7 +45,7 @@
                                 <div class="form-group row">
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="phone_number" name="phonenumber" class="form-control">
+                                        <input type="text" id="phone_number" name="phone_number" class="form-control">
                                     </div>
                                 </div>
 
@@ -64,7 +74,7 @@
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" name="password" class="form-control" name="password">
+                                        <input type="password" id="password" name="password" class="form-control">
                                     </div>
                                 </div>
 
