@@ -64,3 +64,6 @@ Route::get('/contact', [FormController::class, 'getform'])->name('get.form');
 Route::post('postform', [FormController::class, 'postform'])->name('post.form');
 Route::get('/reg', [RegController::class, 'getreg']);
 Route::post('postreg', [RegController::class, 'postreg']);
+//retrieve data in DB
+Route::get('retrieve', [FormController::class, 'retrieveUsers']);
+Route::get('retrieveregs', [RegController::class, 'retrieveregs']);

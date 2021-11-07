@@ -46,4 +46,8 @@ class RegController extends Controller
         return redirect()->back()->with('success', 'Regstration successful');
 
     }
+    public function retrieveRegs(){
+        $regs = Reg::all();
+        return view('layout.retrieveregs', ['regs'=> $regs] );
+    }
 }

@@ -52,5 +52,10 @@ class FormController extends Controller
 
         //return $request->all();
     }
+
+    public function retrieveUsers(){
+        $users = User::all();
+        return view('layout.retrieve', ['users'=>$users]);
+    }
     
 }
